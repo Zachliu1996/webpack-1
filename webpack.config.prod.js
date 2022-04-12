@@ -37,6 +37,34 @@ module.exports = {
                     "css-loader",
                 ],
             },
+            {
+                test: /\.scss$/i,
+                use: ["style-loader", "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: { implementation: require('dart-sass') }
+                    }]
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "less-loader",
+                ],
+            },
+            {
+                test: /\.styl$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "stylus-loader",
+                ],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                use: ["file-loader"],
+            },
         ],
     },
 };
